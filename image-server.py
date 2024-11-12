@@ -11,7 +11,7 @@ def index():
     path = 'images'
 
     # Define the zip file path
-    zip_path = 'images/images.zip'
+    zip_path = 'images.zip'
 
     # Create a zip file containing all files in the images directory
     with zipfile.ZipFile(zip_path, 'w') as zipf:

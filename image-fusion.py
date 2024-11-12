@@ -19,8 +19,6 @@ fused_pyramid = fusionapi.fuse_pyramids(laplacian_pyr_vis, laplacian_pyr_therm)
 # Reconstruct the fused image from the fused Laplacian pyramid
 fused_image = fusionapi.reconstruct_from_pyramid(fused_pyramid)
 
-cv2.imwrite('fused.png', fused_image)
-
 # Initialise the subplot function using number of rows and columns
 figure, axis = plt.subplots(1, 3)
 
