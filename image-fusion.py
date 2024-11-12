@@ -3,8 +3,8 @@ from fusionapi import cv2
 import matplotlib.pyplot as plt
 
 # Load images
-visible_image = cv2.imread("images/visible-image.jpeg")
-thermal_image = cv2.imread("images/thermal-image.jpeg")
+visible_image = cv2.imread("images/optical_image.jpg")
+thermal_image = cv2.imread("images/thermal_image.png")
 
 # Create Gaussian and Laplacian pyramids for both images
 levels = 2
@@ -18,6 +18,8 @@ fused_pyramid = fusionapi.fuse_pyramids(laplacian_pyr_vis, laplacian_pyr_therm)
 
 # Reconstruct the fused image from the fused Laplacian pyramid
 fused_image = fusionapi.reconstruct_from_pyramid(fused_pyramid)
+
+cv2.imwrite('fused.png', fused_image)
 
 # Initialise the subplot function using number of rows and columns
 figure, axis = plt.subplots(1, 3)
@@ -35,6 +37,7 @@ axis[2].imshow(cv2.cvtColor(fused_image, cv2.COLOR_BGR2RGB))
 axis[2].set_title("Blended")
 
 plt.tight_layout()
+plt.savefig("images/test.png", dpi=300)
 plt.show()
 
 
